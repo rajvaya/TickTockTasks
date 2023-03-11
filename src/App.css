@@ -1,4 +1,17 @@
 .App {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container.hidden {
+  display: none;
+  visibility: hidden;
 }

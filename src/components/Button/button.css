@@ -1,0 +1,51 @@
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 100%;
+  border-radius: 5px;
+  padding: 16px 30px;
+}
+
+.button-text{
+  font-family: "Readex Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+}
+
+.button-text.primary {
+    color: white;
+    border: none;
+    background-color: inherit;
+}
+
+.button-text.secondary {
+  color: #333333;
+  border: none;
+  background-color: inherit;
+}
+
+.primary {
+  border: none;
+  background: linear-gradient(
+    270.07deg,
+    #20d8aa 4.09%,
+    rgba(86, 217, 132, 0.973704) 99.94%
+  );
+}
+
+.secondary {
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
+
+.button.secondary:hover {
+    background: #5CE695;
+}
