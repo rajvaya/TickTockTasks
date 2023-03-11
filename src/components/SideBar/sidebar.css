@@ -1,0 +1,50 @@
+.sidebar {
+    height: 100vh;
+    background-color: #f2f2f2;
+    background:#f2f2f2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  
+  @media (min-width: 768px) {
+    .sidebar {
+      max-width: 20rem;
+      width: 100%;
+    }
+
+    .sidebar .sidebar-header {
+        visibility: visible;
+        display: flex;
+       }
+  }
+  
+  @media (max-width: 767px) {
+    .sidebar {
+      width: 100%;
+    }
+
+    .sidebar .sidebar-header {
+        visibility: visible;
+        display: flex;
+       }
+    
+  }
+
+  .sidebar .sidebar-header {
+      background-color: inherit;
+      margin: 2.5rem;
+      padding: 0.5;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+
+   .sidebar .sidebar-header .icon {
+    background: inherit;
+    width: 32px;
+    height: 32px;
+   }
+
+   
