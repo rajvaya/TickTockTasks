@@ -3,6 +3,7 @@
   flex-direction: row;
   gap: 20px;
   margin: 16px 16px;
+  align-items: center;
 }
 
 .text-input {
@@ -32,7 +33,40 @@
   line-height: 150%;
   color: #828282;
 }
+
 .radio-input {
-  background: #ffffff;
-  border: 0.5px solid #828282;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  appearance: none;
 }
+
+.radio-input::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #999;
+  border-radius: 50%;
+}
+
+.radio-input:checked::before {
+  border-color: #5CE695;
+}
+
+.radio-input:checked::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #5CE695;
+}
+
