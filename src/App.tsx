@@ -8,7 +8,7 @@ import NoTaskCard from "./components/NoTaskCard";
 import Button from "./components/Button";
 import AddTaskCard from "./components/AddTaskCard";
 import TimedTodoCard from "./components/TimedTodoCard";
-import { TimedToDo } from "./types";
+import { TimedToDo, SideBarStatus } from "./types";
 
 function App() {
   const { width } = useWindowSize();
@@ -16,6 +16,7 @@ function App() {
   const [timedToDoList, setTimedToDoList] = useState<TimedToDo[]>([]);
   const [showNoTaskCard, setShowNoTaskCard] = useState(true);
   const [showAddTaskCard, setAddTaskCard] = useState(false);
+  const [sideBarStatus, setSideBarStatus] = useState<SideBarStatus>("all");
 
   useEffect(() => {
     if (window.localStorage) {
@@ -26,13 +27,6 @@ function App() {
       console.error("Local storage is not supported");
     }
   }, []);
-
-  function updateTimedToDoList() {
-    const storedList = localStorage.getItem("timedToDoList");
-    const list = storedList !== null ? JSON.parse(storedList) : [];
-    setTimedToDoList(list.reverse());
-    setAddTaskCard(false);
-  }
 
   useEffect(() => {
     const handleStorageChange = () => {
@@ -51,6 +45,13 @@ function App() {
       width < 768 ? setIsSidebarOpen(false) : setIsSidebarOpen(true);
     }
   }, [width]);
+
+  function updateTimedToDoList() {
+    const storedList = localStorage.getItem("timedToDoList");
+    const list = storedList !== null ? JSON.parse(storedList) : [];
+    setTimedToDoList(list.reverse());
+    setAddTaskCard(false);
+  }
 
   const handleToggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -73,10 +74,10 @@ function App() {
   }
 
   function renderToDoList() {
-    return (
-        showAddTaskCard ? (
-        <AddTaskCard updateTimedToDoList={updateTimedToDoList} />
-      )    : (<>
+    return showAddTaskCard ? (
+      <AddTaskCard updateTimedToDoList={updateTimedToDoList} />
+    ) : (
+      <>
         {timedToDoList.map((todo) => (
           <TimedTodoCard
             todo={todo}
@@ -84,18 +85,23 @@ function App() {
             updateTimedToDoList={updateTimedToDoList}
           />
         ))}
-      </>));
+      </>
+    );
   }
 
   return (
     <div className="App">
-      <SideBar onClick={handleToggleSidebar} isSidebarOpen={isSidebarOpen} />
+      <SideBar
+        sideBarStatus={sideBarStatus}
+        setSideBarStatus={setSideBarStatus}
+        onClick={handleToggleSidebar}
+        isSidebarOpen={isSidebarOpen}  />
       <div
         className={classNames("main-container", {
           hidden: width && width < 768 && isSidebarOpen,
         })}
       >
-        <div className={classNames("header-menu", { "hide": isSidebarOpen })}>
+        <div className={classNames("header-menu", { hide: isSidebarOpen })}>
           <img
             src={MenuIcon}
             alt=""
@@ -104,11 +110,18 @@ function App() {
             }}
           />
           <div className="header-status">
-            <h3 className="grey-dark">Running</h3>
-            <div className={classNames("add-timer-button", { "hide": showAddTaskCard })}>
-            <Button label={"Add timer"} onClick={() => {
-              setAddTaskCard(!showAddTaskCard);
-            }} />
+            <h3 className="h3-capitalize">{sideBarStatus}</h3>
+            <div
+              className={classNames("add-timer-button", {
+                hide: showAddTaskCard,
+              })}
+            >
+              <Button
+                label={"Add timer"}
+                onClick={() => {
+                  setAddTaskCard(!showAddTaskCard);
+                }}
+              />
             </div>
           </div>
         </div>

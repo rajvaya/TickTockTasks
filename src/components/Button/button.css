@@ -49,3 +49,7 @@
 .button.secondary:hover {
     background: #5CE695;
 }
+
+.button.secondary.active {
+  background: #5CE695;
+}

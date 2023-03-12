@@ -61,6 +61,10 @@
   display: none;
 }
 
+.h3-capitalize{
+  text-transform: capitalize;
+}
+
 @media (max-width: 768px) {
   .header-menu img {
     height: 32px;
