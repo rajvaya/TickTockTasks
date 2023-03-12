@@ -9,7 +9,7 @@ interface ToDoInputProps {
   isTextInputDisabled?: boolean;
   task: task;
   handleInputChange: (id: string, task: string) => void;
-  handleRadioChange: (taskId: string) => void;
+  handleRadioChange: (taskId: string, checked:boolean) => void;
 }
 export const ToDoInput = ({
   isRadioChecked = false,
@@ -26,23 +26,32 @@ export const ToDoInput = ({
     handleInputChange( id ,e.target.value);
   };
 
-  const handleRadioClick = () => {
-    console.log("handleRadioClick", id)
-    handleRadioChange(id);
-  };
+  const handleRadioClick = (e: any) => {
+      e.target.checked = !e.target.checked;
+      handleRadioChange(id,e.target.checked);
+    };
+
+
+  const handleOnClickInput = (e: any) => {
+        if(isTextInputDisabled) {
+          handleRadioChange(id,!isRadioChecked);
+        }
+    };
+
 
 
   return (
-    <div className="to-do-input">
+    <div className="to-do-input" onClick={handleOnClickInput}>
       <input
         type="radio"
-        className={classNames("radio-input", { hidden: !isRadioVisible })}
+        className={classNames("radio-input", { "hidden": !isRadioVisible })}
         checked={isRadioChecked}
-        onChange={handleRadioClick} 
+        onClick={handleRadioClick}
+        readOnly={true}
       />
       <input
         type="text"
-        className="text-input"
+        className={classNames("text-input", {"stike-text": isRadioChecked && isTextInputDisabled })}
         placeholder="Add Task"
         disabled={isTextInputDisabled}
         value={task.task}

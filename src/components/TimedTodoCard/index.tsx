@@ -11,6 +11,8 @@ interface TimedTodoCardProps {
 }
 
 const TimedTodoCard = ({ todo,updateTimedToDoList }: TimedTodoCardProps) => {
+
+  
   const handleRadioChange = (taskId: string) => {
     console.log("id" , taskId)
     const updatedTasks = todo.tasks.map((task) =>
@@ -37,7 +39,6 @@ const TimedTodoCard = ({ todo,updateTimedToDoList }: TimedTodoCardProps) => {
                   task={task}
                   isTextInputDisabled={true}
                   isRadioChecked={!task.done}
-                  value={task.task}
                   handleInputChange={() => { } }
                   handleRadioChange={handleRadioChange}           
                  />

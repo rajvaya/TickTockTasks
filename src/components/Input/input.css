@@ -73,3 +73,8 @@
 .radio-input.hidden {
   display: none;
 }
+
+.stike-text {
+  text-decoration: line-through;
+  color: #828282;
+}
