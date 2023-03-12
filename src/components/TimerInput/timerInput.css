@@ -1,0 +1,18 @@
+.timer-input {
+    width: 100%;
+    background: #ffffff;
+    border: 0.5px solid #828282;
+    border-radius: 5px;
+    padding: 16px 24px;
+    height: auto;
+    text-overflow: clip;
+    outline-color: #5ce695;
+    font-family: "Readex Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    color: #828282;
+  }

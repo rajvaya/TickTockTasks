@@ -15,7 +15,7 @@ background: #f2f2f2;
     display: none;
   }
 /* desktop */
-@media (min-width: 481px) {
+@media (min-width: 769px) {
   .sidebar {
     max-width: 20rem;
     width: 100%;
@@ -29,7 +29,7 @@ background: #f2f2f2;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .sidebar {
     width: 100%;  
 }

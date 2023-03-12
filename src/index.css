@@ -16,20 +16,11 @@ h3 {
   line-height: 150%;
  }
 
-/* Media query for mobile devices */
-@media (max-width: 480px) {
-  /* h3 {
-    font-family: 'Readex Pro';
+ h2 {
+font-family: 'Readex Pro';
 font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 150%;
-  } */
-}
+font-weight: 600;
+font-size: 40px;
+line-height: 120%;
+ }
 
-/* Media query for desktop devices */
-@media (min-width: 481px) {
-  /* h3 {
-    font-size: 28px;
-  } */
-}

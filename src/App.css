@@ -49,3 +49,39 @@
   align-items: center;
   min-height: 100vh;
 }
+
+.add-task-card{
+  grid-column: 1 / 5;
+  place-self: center;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .add-task-card{
+    max-width: 80%;
+  }
+}
+
+/* Media query for desktop devices */
+@media (min-width: 769px) {
+  .add-task-card{
+    max-width: 445px;
+  }
+}
+
+.add-task-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 44px;
+}
+
+.no-task-content Button {
+  width: fit-content
+}
+
+.center {
+  text-align: center;
+}
