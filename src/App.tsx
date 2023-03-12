@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 import SideBar from './components/SideBar'
 import { useWindowSize } from './utils/useWindowSize';
 import MenuIcon from './assets/Menu.svg';
 import classNames from 'classnames';
-import BaseCard from './components/Card';
-import Button from './components/Button';
 import NoTaskCard from './components/NoTaskCard';
+import { ToDoInput } from './components/Input';
 
 function App() {
   const {width} = useWindowSize();
@@ -30,8 +29,14 @@ function App() {
             <h3 className='grey-dark'>Running</h3>      
           </div>
 
-          <div className='main-content'>         
-              <NoTaskCard/>
+          <div className='main-content'>      
+
+                <div>
+                 <ToDoInput /> 
+                 <ToDoInput /> 
+                 <ToDoInput /> 
+                  </div>   
+              {/* <NoTaskCard/> */}
             </div>
         </div>
     </div>

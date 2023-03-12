@@ -13,9 +13,9 @@ function SideBar({onClick,isSidebarOpen} : {onClick: () => void,isSidebarOpen:bo
       <img src={CloseIcon} onClick={onClick} className="icon" alt="" />
       </div>
       <div className="state-button-container">
-      <Button variant="primary"/>
-      <Button variant="secondary" />
-      <Button variant="secondary"/>
+      <Button variant="secondary" label="Running"/>
+      <Button variant="secondary" label="Expired" />
+      <Button variant="secondary" label="All"/>
       </div>
 
     </div>
