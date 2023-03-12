@@ -21,7 +21,7 @@ function App() {
     if (window.localStorage) {
       const storedList = localStorage.getItem("timedToDoList");
       const list = storedList !== null ? JSON.parse(storedList) : [];
-      setTimedToDoList(list);
+      setTimedToDoList(list.reverse());
     } else {
       console.error("Local storage is not supported");
     }
@@ -30,7 +30,7 @@ function App() {
   function updateTimedToDoList() {
     const storedList = localStorage.getItem("timedToDoList");
     const list = storedList !== null ? JSON.parse(storedList) : [];
-    setTimedToDoList(list);
+    setTimedToDoList(list.reverse());
     setAddTaskCard(false);
   }
 

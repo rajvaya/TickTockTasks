@@ -12,6 +12,8 @@ export interface TimedToDo {
     id: string;
     time: string
     tasks: task[];
+    futureTime: Date;
+    status: 'running' | 'expired';
 }
 
 export type SideBarStatus = 'all' | 'running' | 'expired';

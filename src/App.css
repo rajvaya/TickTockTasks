@@ -31,14 +31,6 @@
   gap: 16px;
 }
 
-
-
-/* .header-menu.hide {
-  display: none;
-  visibility: hidden;
-} */
-
-
 .main-content{
   display: grid;
   grid-template-columns: repeat(4, 1fr);

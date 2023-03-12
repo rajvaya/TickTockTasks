@@ -8,6 +8,7 @@ import { task, TimedToDo } from "../../types";
 import { v4 as uuidv4 } from "uuid";
 import RoundButton from "../RoundedButton";
 import {timedToDoService} from "../../timedToDoService"
+import {futureTime} from "../../utils"
 
 
 const AddTaskCard = ({updateTimedToDoList}:any) => {
@@ -55,7 +56,9 @@ const AddTaskCard = ({updateTimedToDoList}:any) => {
     const newTimedTodo : TimedToDo = {
       id: uuidv4(),
       time: time,
-      tasks: tasks
+      tasks: tasks,
+      futureTime: futureTime(time),
+      status: "running"
     }
     console.log("createNewTodo", newTimedTodo);
     timedToDoService.createTimedToDoItem(newTimedTodo)
