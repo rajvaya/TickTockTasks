@@ -1,11 +1,18 @@
 import "./button.css"
 import classNames from "classnames"
 
-function Button({variant,label} : {variant:string,label:string} ) {
+interface ButtonProps {
+  variant?:string,
+  label:string,
+  onClick:()=>any
+}
+
+
+function Button({variant = "primary",label,onClick} : ButtonProps ) {
   var buttonClass = classNames("button",variant)
   var buttonTextClaass = classNames("button-text",variant)
   return (
-    <button className={buttonClass}>
+    <button className={buttonClass} onClick={onClick}>
         <span className={buttonTextClaass}>{label}</span>
     </button>
   )

@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
 import './timerInput.css';
 
-function TimerInput({ onSubmit } : any) {
-    const [time, setTime] = useState("");
+interface TimerInputProps {
+  inputCallBack: (inputTime: string) => void;
+}
 
-    function handleSubmit(e) {
-      e.preventDefault();
+function TimerInput({ inputCallBack } : TimerInputProps) {
+    const [time, setTime] = useState("00:00");
   
-      // Validate that the time is in the "MM:SS" format
-      const timeRegex = /^([0-5][0-9]):([0-5][0-9])$/;
-      if (!timeRegex.test(time)) {
-        alert('Please enter a time in the format "MM:SS"');
-        return;
-      }
-  
-      onSubmit(time);
-    }
-  
-    function handleTimeChange(e) {
+    function handleTimeChange(e:any) {
         const value = e.target.value.replace(/\D/g, '').slice(-4);
+        console.log(value)
       
         if (value.length <= 2) {
           setTime(value.padStart(2, '0'));
@@ -27,6 +19,7 @@ function TimerInput({ onSubmit } : any) {
         } else {
           setTime(`${value.slice(-4, -2)}:${value.slice(-2)}`);
         }
+        inputCallBack(value)
       }
       
   

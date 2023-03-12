@@ -1,0 +1,25 @@
+.round-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #5ce695;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 16px;
+  }
+  
+  .round-button img {
+    width: 16px;
+    height: 16px;
+    background: none;
+  }
+
+  .container {
+    display: flex;
+    justify-content: flex-end; 
+  }
+  
