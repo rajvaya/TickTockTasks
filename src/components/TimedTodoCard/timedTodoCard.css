@@ -1,0 +1,54 @@
+.timed-card{
+    place-self: center;
+}
+
+
+.title {
+    text-align:  center;
+    color: #828282;
+    margin-bottom: 32 ;
+}
+
+.red {
+    color: #FF4D4D;
+}
+.green {
+    color: #5CE695;
+}
+.yellow {
+    color: #FFB75E;
+}
+
+.tasks-list {
+    margin-top: 32px;
+    overflow: auto; /* make it scrollable */
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    .timed-card{
+      max-width: 80%;
+      grid-column: span 4;
+      padding: 32px 16px ;
+    }
+  }
+  
+  /* Media query for desktop devices */
+  @media (min-width: 769px) {
+    .timed-card{
+      max-width: 300px;
+      grid-column: span 2;
+      padding: 32px 44px ;
+    }
+  }

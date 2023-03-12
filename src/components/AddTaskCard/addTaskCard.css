@@ -1,0 +1,44 @@
+
+
+.add-task-card{
+  grid-column: 1 / 5;
+  place-self: center;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .add-task-card{
+    max-width: 80%;
+  }
+}
+
+/* Media query for desktop devices */
+@media (min-width: 769px) {
+  .add-task-card{
+    max-width: 445px;
+  }
+}
+
+
+.add-task-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 44px;
+}
+  
+  .add-task-content Button {
+    width: fit-content
+  }
+  
+  .center {
+    text-align: center;
+  }
+ 
+  .tasks-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }

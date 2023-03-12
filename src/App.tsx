@@ -9,14 +9,12 @@ import { ToDoInput } from './components/Input';
 import BaseCard from './components/Card';
 import Button from './components/Button';
 import TimerInput from './components/TimerInput';
+import AddTaskCard from './components/AddTaskCard';
+import TimedTodoCard from './components/TimedTodoCard';
 
 function App() {
   const {width} = useWindowSize();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [time, setTime] = useState('00:00');
-  function handleChange(e) {
-    setTime(e.target.value);
-  }
 
   useEffect(() => {
     if (width) {
@@ -37,20 +35,23 @@ function App() {
           </div>
 
           <div className='main-content '>      
-              
-                <BaseCard className='add-task-card'>
-                  <div className='add-task-card-content'>
-                  <h2 className='center'>Add a Task</h2>
-
-                  <TimerInput onSubmit={(minutes, seconds) => console.log(minutes, seconds)} />
-                 <ToDoInput isRadioChecked={false} isRadioVisible={false} /> 
-                 <ToDoInput isRadioChecked={true} isRadioVisible={false} /> 
-                 <ToDoInput isRadioChecked={false} isRadioVisible={false} /> 
-                 <Button variant="primary" label='Create'></Button>
-                  </div>
-                </BaseCard>   
-              {/* <NoTaskCard/> */}
-            </div>
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+                  <TimedTodoCard />
+              </div>
         </div>
     </div>
   )

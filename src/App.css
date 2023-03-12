@@ -13,6 +13,9 @@
   justify-content: center;
   width: 100%;
   min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .main-container.hidden {
@@ -42,46 +45,15 @@
 
 
 .main-content{
+  margin: 60px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 16px;
   justify-items: center;
   align-items: center;
   min-height: 100vh;
-}
-
-.add-task-card{
-  grid-column: 1 / 5;
-  place-self: center;
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-  .add-task-card{
-    max-width: 80%;
-  }
-}
-
-/* Media query for desktop devices */
-@media (min-width: 769px) {
-  .add-task-card{
-    max-width: 445px;
-  }
-}
-
-.add-task-card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  max-height: 100vh;
+  grid-gap: 50px 50px;
   align-items: center;
-  gap: 16px;
-  padding: 44px;
+  justify-content: center;
 }
 
-.no-task-content Button {
-  width: fit-content
-}
-
-.center {
-  text-align: center;
-}
