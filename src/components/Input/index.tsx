@@ -45,13 +45,13 @@ export const ToDoInput = ({
       <input
         type="radio"
         className={classNames("radio-input", { "hidden": !isRadioVisible })}
-        checked={isRadioChecked}
+        checked={!isRadioChecked}
         onClick={handleRadioClick}
         readOnly={true}
       />
       <input
         type="text"
-        className={classNames("text-input", {"stike-text": isRadioChecked && isTextInputDisabled })}
+        className={classNames("text-input", { "stike-text": !isRadioChecked && isTextInputDisabled })}
         placeholder="Add Task"
         disabled={isTextInputDisabled}
         value={task.task}

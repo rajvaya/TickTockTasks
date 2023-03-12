@@ -78,10 +78,9 @@ const AddTaskCard = ({updateTimedToDoList}:any) => {
               isRadioVisible={false}
               task={task}
               handleInputChange={(taskId,task) => { 
-                handleEditTask(taskId, task)}} 
-              handleRadioChange={function (taskId: string): void {
-                console.log("Function not implemented.");
-              } }            />
+              handleEditTask(taskId, task)}} 
+              handleRadioChange={()=>{}}         
+                 />
           ))}
           <RoundButton onClick={ handleAddTask } />
         </div>
