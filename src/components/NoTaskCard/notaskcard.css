@@ -1,0 +1,19 @@
+.no-task-card{
+    grid-column: 1 / 5;
+    max-width: 350px;
+    place-self: center;
+  }
+  
+  .no-task-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 44px;
+  }
+  
+  .no-task-content Button {
+    width: fit-content
+  }
+  

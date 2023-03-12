@@ -2,16 +2,19 @@ import React, { useEffect, useState } from 'react';
 import './App.css'
 import SideBar from './components/SideBar'
 import { useWindowSize } from './utils/useWindowSize';
+import MenuIcon from './assets/Menu.svg';
+import classNames from 'classnames';
+import BaseCard from './components/Card';
+import Button from './components/Button';
+import NoTaskCard from './components/NoTaskCard';
 
 function App() {
   const {width} = useWindowSize();
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  console.log(isSidebarOpen)
 
   useEffect(() => {
     if (width) {
-      width < 480 ? setIsSidebarOpen(false) : setIsSidebarOpen(true)
+      width < 768 ? setIsSidebarOpen(false) : setIsSidebarOpen(true)
     }
   }, [width])
 
@@ -21,12 +24,16 @@ function App() {
   return (
     <div className="App">
         <SideBar onClick={handleToggleSidebar} isSidebarOpen={isSidebarOpen}/>
-        <div className={`main-container ${ width&&width < 480 ?  isSidebarOpen ? 'hidden' : '' : ''}`}> 
-          <div onClick={()=>{handleToggleSidebar()}}>
-            Toggle
+        <div className={classNames('main-container',{"hidden":width&&width < 480 &&isSidebarOpen})} > 
+          <div className={classNames('header-menu',{"hide":isSidebarOpen})}>
+            <img src={MenuIcon} alt=""  onClick={()=>{handleToggleSidebar()}} />
+            <h3 className='grey-dark'>Running</h3>      
           </div>
-        </div>
 
+          <div className='main-content'>         
+              <NoTaskCard/>
+            </div>
+        </div>
     </div>
   )
 }
