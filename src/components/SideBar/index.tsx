@@ -13,9 +13,15 @@ function SideBar({onClick,isSidebarOpen} : {onClick: () => void,isSidebarOpen:bo
       <img src={CloseIcon} onClick={onClick} className="icon" alt="" />
       </div>
       <div className="state-button-container">
-      <Button variant="secondary" label="Running"/>
-      <Button variant="secondary" label="Expired" />
-      <Button variant="secondary" label="All"/>
+      <Button variant="secondary" label="Running" onClick={function () {
+          throw new Error('Function not implemented.');
+        } }/>
+      <Button variant="secondary" label="Expired" onClick={function () {
+          throw new Error('Function not implemented.');
+        } } />
+      <Button variant="secondary" label="All" onClick={function () {
+          throw new Error('Function not implemented.');
+        } }/>
       </div>
 
     </div>
