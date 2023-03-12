@@ -30,13 +30,13 @@ function App() {
   return (
     <div className="App">
         <SideBar onClick={handleToggleSidebar} isSidebarOpen={isSidebarOpen}/>
-        <div className={classNames('main-container',{"hidden":width&&width < 480 &&isSidebarOpen})} > 
+        <div className={classNames('main-container',{"hidden":width&&width < 768 &&isSidebarOpen})} > 
           <div className={classNames('header-menu',{"hide":isSidebarOpen})}>
             <img src={MenuIcon} alt=""  onClick={()=>{handleToggleSidebar()}} />
             <h3 className='grey-dark'>Running</h3>      
           </div>
 
-          <div className='main-content'>      
+          <div className='main-content '>      
               
                 <BaseCard className='add-task-card'>
                   <div className='add-task-card-content'>
