@@ -9,9 +9,7 @@ function TimerInput({ inputCallBack } : TimerInputProps) {
     const [time, setTime] = useState("00:00");
   
     function handleTimeChange(e:any) {
-        const value = e.target.value.replace(/\D/g, '').slice(-4);
-        console.log(value)
-      
+        const value = e.target.value.replace(/\D/g, '').slice(-4);      
         if (value.length <= 2) {
           setTime(value.padStart(2, '0'));
         } else if (value.length === 3) {

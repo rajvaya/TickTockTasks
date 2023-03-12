@@ -22,6 +22,7 @@ const TimedTodoCard = ({ todo,updateTimedToDoList }: TimedTodoCardProps) => {
     const timeUntilFutureDate = futureDate.getTime() - Date.now();
     if (timeUntilFutureDate < 0) {
       setTimeUntilFutureTime(`Time is expired ${getTaskStatus(todo.tasks)}`);
+      setTimerColor("")
       timedToDoService.updateTimedToDoItem({ ...todo, status: "expired" });
       updateTimedToDoList()
     } else {
@@ -34,9 +35,10 @@ const TimedTodoCard = ({ todo,updateTimedToDoList }: TimedTodoCardProps) => {
         let timeUntilFutureDate = futureDate.getTime() -  Date.now();
         if (timeUntilFutureDate < 0) {
           setTimeUntilFutureTime(`Time is expired ${getTaskStatus(todo.tasks)}`);
+          setTimerColor("")
           timedToDoService.updateTimedToDoItem({ ...todo, status: "expired" });
-          updateTimedToDoList()
           clearInterval(intervalId);
+          updateTimedToDoList()
         } else {
           let minutes = Math.floor(timeUntilFutureDate / 60000);
           let seconds = Math.floor((timeUntilFutureDate % 60000) / 1000);
@@ -51,15 +53,10 @@ const TimedTodoCard = ({ todo,updateTimedToDoList }: TimedTodoCardProps) => {
 
 
   const handleRadioChange = (taskId: string) => {
-    console.log("id" , taskId)
     const updatedTasks = todo.tasks.map((task) =>
       task.id === taskId ? { ...task, done: !task.done } : task
     );
-    console.log("updatedTasks" , updatedTasks)
-
     const updatedTimedToDo = { ...todo, tasks: updatedTasks };
-    console.log("updatedTimedToDo" , updatedTimedToDo)
-
     timedToDoService.updateTimedToDoItem(updatedTimedToDo);
     updateTimedToDoList()
   };

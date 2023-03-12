@@ -33,9 +33,6 @@ const AddTaskCard = ({updateTimedToDoList}:any) => {
   };
 
   const handleEditTask = (taskId: string, value: string) => {
-
-    console.log("handleEditTask", taskId, value);
-
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
         return { ...task, task: value };
@@ -60,7 +57,6 @@ const AddTaskCard = ({updateTimedToDoList}:any) => {
       futureTime: futureTime(time),
       status: "running"
     }
-    console.log("createNewTodo", newTimedTodo);
     timedToDoService.createTimedToDoItem(newTimedTodo)
     updateTimedToDoList()
   }

@@ -22,7 +22,6 @@ export const ToDoInput = ({
   const { id } = task;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("handleChange", id,e.target.value)
     handleInputChange( id ,e.target.value);
   };
 
