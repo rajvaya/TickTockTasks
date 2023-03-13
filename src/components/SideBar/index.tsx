@@ -9,6 +9,8 @@ interface SideBarProps {
   isSidebarOpen: boolean;
   sideBarStatus: SideBarStatus;
   setSideBarStatus: React.Dispatch<React.SetStateAction<SideBarStatus>>;
+  hideAddTaskCard: () => void;
+  hideSideBarOnStatusChangeOnMobile: () => void;
 }
 
 function SideBar({
@@ -16,6 +18,8 @@ function SideBar({
   isSidebarOpen,
   sideBarStatus,
   setSideBarStatus,
+  hideAddTaskCard,
+  hideSideBarOnStatusChangeOnMobile
 }: SideBarProps): JSX.Element {
   return (
     <div className={`sidebar ${isSidebarOpen ? "open" : "close"}`}>
@@ -24,7 +28,7 @@ function SideBar({
           src={HomeIcon}
           onClick={() => {
             onClick();
-            setSideBarStatus("all");
+            setSideBarStatus("all")            
           }}
           className="icon"
           alt=""
@@ -38,6 +42,8 @@ function SideBar({
           activeState={sideBarStatus === "running"}
           onClick={() => {
             setSideBarStatus("running");
+            hideAddTaskCard();
+            hideSideBarOnStatusChangeOnMobile();
           }}
         />
         <Button
@@ -46,6 +52,8 @@ function SideBar({
           activeState={sideBarStatus === "expired"}
           onClick={() => {
             setSideBarStatus("expired");
+            hideAddTaskCard();
+            hideSideBarOnStatusChangeOnMobile();
           }}
         />
         <Button
@@ -54,6 +62,8 @@ function SideBar({
           activeState={sideBarStatus === "all"}
           onClick={() => {
             setSideBarStatus("all");
+            hideAddTaskCard();
+            hideSideBarOnStatusChangeOnMobile();
           }}
         />
       </div>

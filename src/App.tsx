@@ -57,6 +57,24 @@ function App() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const hideAddTaskCard = () => {
+    setAddTaskCard(false);
+  }
+  const hideSideBarOnStatusChangeOnMobile = () => {
+    if(width && width < 768) {
+      setIsSidebarOpen(false);
+  }
+  }
+
+function filterTimedToDoByStatus({ toDos, status }: { toDos: TimedToDo[]; status: 'running' | 'expired' | 'all'; }): TimedToDo[] {
+  if(status == 'all') {
+  const runningToDos = filterTimedToDoByStatus({ toDos, status: 'running' });
+  const expiredToDos = filterTimedToDoByStatus({ toDos, status: 'expired' });
+  return [...runningToDos, ...expiredToDos];
+  } else {
+  return toDos.filter((toDo) => toDo.status === status);
+}
+}
   function renderAddTaskCards() {
     return (
       <>
@@ -78,7 +96,7 @@ function App() {
       <AddTaskCard updateTimedToDoList={updateTimedToDoList} />
     ) : (
       <>
-        {timedToDoList.map((todo) => (
+        {filterTimedToDoByStatus({ toDos: timedToDoList, status: sideBarStatus }).map((todo) => (
           <TimedTodoCard
             todo={todo}
             key={todo.id}
@@ -92,10 +110,13 @@ function App() {
   return (
     <div className="App">
       <SideBar
+      hideSideBarOnStatusChangeOnMobile={hideSideBarOnStatusChangeOnMobile}
         sideBarStatus={sideBarStatus}
         setSideBarStatus={setSideBarStatus}
         onClick={handleToggleSidebar}
-        isSidebarOpen={isSidebarOpen}  />
+        isSidebarOpen={isSidebarOpen} 
+        hideAddTaskCard={hideAddTaskCard}
+        />
       <div
         className={classNames("main-container", {
           hidden: width && width < 768 && isSidebarOpen,
