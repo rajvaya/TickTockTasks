@@ -6,6 +6,7 @@ import "./timedTodoCard.css";
 import { timedToDoService } from "../../timedToDoService";
 import { getTaskStatus, timeToColor } from '../../utils';
 import classNames from 'classnames';
+import Button from '../Button';
 
 interface TimedTodoCardProps {
   todo: TimedToDo;
@@ -51,6 +52,11 @@ const TimedTodoCard = ({ todo,updateTimedToDoList }: TimedTodoCardProps) => {
     }
   }, [todo.futureTime]);
 
+  function deletTimedToDoItem() {
+    timedToDoService.deleteTimedToDoItem(todo.id);
+    updateTimedToDoList()
+  }
+
 
   const handleRadioChange = (taskId: string) => {
     const updatedTasks = todo.tasks.map((task) =>
@@ -80,6 +86,7 @@ const TimedTodoCard = ({ todo,updateTimedToDoList }: TimedTodoCardProps) => {
             );
           })}
         </ul>
+        <Button label={'Delete'} onClick={deletTimedToDoItem} />
       </div>
     </BaseCard>
   );
